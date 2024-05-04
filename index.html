@@ -10,7 +10,7 @@
 <body>
     <button id="showDialog">NEW BOOK</button>
     <dialog id="add-book">
-        <form action="">
+        <form id="form">
             <button id="exit-button">Close</button>
             <h1>Add Book</h1>
             <label for="book-title">Title</label>
@@ -18,9 +18,9 @@
             <label for="book-author">Author</label>
             <input type="text" id="book-author">
             <label for="book-length">Page Count</label>
-            <input type="text" id="book-length">
+            <input type="number" id="book-length">
             <label for="book-read">Read?</label>
-            <input type="text" id="book-read">
+            <input type="checkbox" id="book-read">
             <input type="submit" id="book-submit" value="Add Book">
         </form>
     </dialog>
