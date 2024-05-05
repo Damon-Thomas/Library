@@ -33,9 +33,9 @@ submitNewBook.addEventListener("click", function(event){
 })
 
 // Pre Populated Library
-TheHobbit = new Book('The Hobbit', 'J.R.R Tolkien', 295, 'not read yet');
-oryxAndCrake = new Book('Oryx & Crake', 'Margaret Atwood', 325, 'read');
-thePragmaticProgrammer = new Book('The Pragmatic Programmer', 'David Thomas and Andrew Hunt', 321, 'not read yet')
+TheHobbit = new Book('The Hobbit', 'J.R.R Tolkien', 295, false);
+oryxAndCrake = new Book('Oryx & Crake', 'Margaret Atwood', 325, true);
+thePragmaticProgrammer = new Book('The Pragmatic Programmer', 'David Thomas and Andrew Hunt', 321, false)
 addBookToLibrary(TheHobbit)
 addBookToLibrary(oryxAndCrake)
 addBookToLibrary(thePragmaticProgrammer)
@@ -64,8 +64,8 @@ function createCard(Book) {
     let cardpages = document.createElement('p');
     cardpages.textContent = Book.pages;
     cardpages.classList.add('card-pages');
-    let cardBookRead = document.createElement('p');
-    cardBookRead.textContent = Book.read;
+    let cardBookRead = document.createElement('button');
+    cardBookRead.textContent = Book.read === true ? "Read" : "Not Read"
     cardBookRead.classList.add('card-read');
     let Removebutton = document.createElement('button');
     Removebutton.textContent = "Remove";
@@ -118,3 +118,20 @@ document.addEventListener("click", function(e){
     if(target != null){
         removeBook(target.id)
     }});
+
+// Read button functionality
+document.addEventListener("click", function(e){
+    const target = e.target.closest(".card-read"); 
+    
+    if(target != null){
+        const sister = target.parentNode.childNodes[4];
+        readBook(sister.id)
+    }});
+
+// Change Read Status
+function readBook(Title){
+    let index = myLibrary.findIndex(x => x.title === Title)
+    let activeBook =myLibrary[index]
+    activeBook.read === false ? activeBook.read = true : activeBook.read = false;
+    loadLibrary()
+}
