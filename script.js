@@ -5,8 +5,8 @@ const favorites = [];
 
 // JS variable designations and event listeners
 const dialog = document.querySelector("dialog");
-const addBookButton = document.getElementById("showDialog");
-addBookButton.addEventListener("click", createNewBook);
+const addButton = document.querySelector("#add-button");
+addButton.addEventListener("click", createNewBook);
 const submitNewBook = document.getElementById("book-submit");
 const cardContainer = document.getElementById("card-container");
 const bookTitle = document.getElementById("book-title");
@@ -15,6 +15,9 @@ const bookPages = document.getElementById("book-length");
 const bookRead = document.querySelector("#book-read")
 const form = document.getElementById("form");
 const close = document.querySelector("#exit-button");
+const emptyCard = document.createElement("div")
+emptyCard.classList.add("card")
+emptyCard.id = "emptyCard"
 
 // close Modal
 close.addEventListener("click", function(event) {
@@ -44,11 +47,11 @@ loadLibrary()
 // Put cards on screen
 function loadLibrary() {
     cardContainer.replaceChildren()
+    cardContainer.appendChild(emptyCard)
     myLibrary.forEach(element => {
         let x = createCard(element)
         cardContainer.appendChild(x)
         })
-    console.log(myLibrary)
     };
 
 // Create card content from Book

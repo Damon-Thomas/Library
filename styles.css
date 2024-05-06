@@ -1,4 +1,241 @@
+
+@font-face {
+    font-family: 'poppinsblack';
+    src: url('/fonts/poppins-black-webfont.woff2') format('woff2'),
+         url('/fonts/poppins-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'poppinsblack_italic';
+    src: url('/fonts/poppins-blackitalic-webfont.woff2') format('woff2'),
+         url('/fonts/poppins-blackitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'poppinsbold';
+    src: url('/fonts/poppins-bold-webfont.woff2') format('woff2'),
+         url('/fonts/poppins-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'poppinsextrabold';
+    src: url('/fonts/poppins-extrabold-webfont.woff2') format('woff2'),
+         url('/fonts/poppins-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'poppinsextralight';
+    src: url('/fonts/poppins-extralight-webfont.woff2') format('woff2'),
+         url('/fonts/poppins-extralight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'poppinsextralight_italic';
+    src: url('/fonts/poppins-extralightitalic-webfont.woff2') format('woff2'),
+         url('/fonts/poppins-extralightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'poppinsitalic';
+    src: url('/fonts/poppins-italic-webfont.woff2') format('woff2'),
+         url('/fonts/poppins-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'poppinslight';
+    src: url('/fonts/poppins-light-webfont.woff2') format('woff2'),
+         url('/fonts/poppins-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'poppinslight_italic';
+    src: url('/fonts/poppins-lightitalic-webfont.woff2') format('woff2'),
+         url('/fonts/poppins-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'poppinsmedium';
+    src: url('/fonts/poppins-medium-webfont.woff2') format('woff2'),
+         url('/fonts/poppins-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'poppinsregular';
+    src: url('fonts/poppins-regular-webfont.woff2') format('woff2'),
+         url('fonts/poppins-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-family: "poppinsregular", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	vertical-align: baseline;
+}
+    
+
+body {
+	display: grid;
+	grid-template-rows: 5rem 1fr;
+	grid-template-columns:  1fr 4fr;
+	min-height: 100vh;
+	max-width: 100vw;
+
+}
+
+.header{
+	grid-column: 1/3;
+	background-color: aqua;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+}
+.library-title {
+	font-family: 'poppinsextrabold';
+	font-size: 3rem;
+}
+
+.sidebar {
+	background-color: aqua;
+	grid-row: 2/3;
+}
+
+#showDialog {
+	position: absolute;
+	grid-column: 1/2;
+	grid-row: 1/2;
+	top: 2rem;
+	left: 2rem;
+	background-color: white;
+	border: none;
+}
+
+#showDialog {
+	height: 15rem;
+	width: 15rem;
+}
+
+#showDialog > img {
+	height: 8rem;
+	width: 8rem;
+}
+
+.content {
+	display: grid;
+	position: relative;
+}
+
+#card-container {
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 15rem);
+	grid-template-rows: repeat(auto-fill, 15rem);
+	gap: 2rem;
+
+
+}
+
+.card {
+	border: 2px solid black;
+	margin: 2rem;
+	width: 15rem;
+	height: 15rem;
+
+}
+
+#emptyCard {
+	border: none;
+}
+
+.footer {
+	position: fixed;
+  	left: 0;
+ 	bottom: 0;
+ 	width: 100%;
+	height: 2rem;
+	background-color: rgb(43, 41, 41);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
 ::backdrop {
     background-color: gray;
     opacity: .5;
 }
+

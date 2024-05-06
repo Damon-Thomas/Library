@@ -8,22 +8,36 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <button id="showDialog">NEW BOOK</button>
-    <dialog id="add-book">
-        <form id="form">
-            <button id="exit-button">Close</button>
-            <h1>Add Book</h1>
-            <label for="book-title">Title</label>
-            <input type="text" id="book-title">
-            <label for="book-author">Author</label>
-            <input type="text" id="book-author">
-            <label for="book-length">Page Count</label>
-            <input type="number" id="book-length">
-            <label for="book-read">Read?</label>
-            <input type="checkbox" id="book-read">
-            <input type="submit" id="book-submit" value="Add Book">
-        </form>
-    </dialog>
-    <div id="card-container"></div>
+    <div class="header">
+        <h1 class="library-title">Library</h1>
+    </div>
+    <div class="sidebar">
+        <div class="queue"></div>
+        <div class="favorites">    </div>
+    </div>
+    <div class="content">
+        <button id="showDialog"><img id="add-button" height="100px" width="100px" src="images/plus-circle.svg" alt="add book"></button>
+            <dialog id="add-book">
+                <form id="form">
+                    <button id="exit-button">Close</button>
+                    <h1>Add Book</h1>
+                    <label for="book-title">Title</label>
+                    <input type="text" id="book-title">
+                    <label for="book-author">Author</label>
+                    <input type="text" id="book-author">
+                    <label for="book-length">Page Count</label>
+                    <input type="number" id="book-length">
+                    <label for="book-read">Read?</label>
+                    <input type="checkbox" id="book-read">
+                    <input type="submit" id="book-submit" value="Add Book">
+                </form>
+            </dialog>
+        <div id="card-container">
+            <div class="card"></div>
+        </div>
+    </div>
+    <div class="footer">
+        <h3 class="credit">Damon Thomas 2024</h3>
+    </div>
 </body>
 </html>
