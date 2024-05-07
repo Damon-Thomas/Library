@@ -16,7 +16,7 @@ const bookRead = document.querySelector("#book-read")
 const form = document.getElementById("form");
 const close = document.querySelector("#exit-button");
 const emptyCard = document.createElement("div")
-emptyCard.classList.add("card")
+// emptyCard.classList.add("card")
 emptyCard.id = "emptyCard"
 
 // close Modal
@@ -67,8 +67,10 @@ function createCard(Book) {
     let cardpages = document.createElement('p');
     cardpages.textContent = Book.pages;
     cardpages.classList.add('card-pages');
+    let buttonWrapper = document.createElement('div');
+    buttonWrapper.classList.add('buttonWrapper');
     let cardBookRead = document.createElement('button');
-    cardBookRead.textContent = Book.read === true ? "Read" : "Not Read"
+    cardBookRead.textContent = Book.read === true ? "Read" : "Not Read";
     cardBookRead.classList.add('card-read');
     let Removebutton = document.createElement('button');
     Removebutton.textContent = "Remove";
@@ -77,8 +79,9 @@ function createCard(Book) {
     card.appendChild(cardTitle)
     card.appendChild(cardAuthor)
     card.appendChild(cardpages)
-    card.appendChild(cardBookRead)
-    card.appendChild(Removebutton)
+    buttonWrapper.appendChild(cardBookRead)
+    buttonWrapper.appendChild(Removebutton)
+    card.appendChild(buttonWrapper)
     return card
 }
 
@@ -127,7 +130,7 @@ document.addEventListener("click", function(e){
     const target = e.target.closest(".card-read"); 
     
     if(target != null){
-        const sister = target.parentNode.childNodes[4];
+        const sister = target.parentNode.childNodes[1];
         readBook(sister.id)
     }});
 
