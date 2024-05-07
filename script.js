@@ -72,6 +72,7 @@ function createCard(Book) {
     let cardBookRead = document.createElement('button');
     cardBookRead.textContent = Book.read === true ? "Read" : "Not Read";
     cardBookRead.classList.add('card-read');
+    Book.read === true ? card.classList.add("read") : card.classList.add("not-read");
     let Removebutton = document.createElement('button');
     Removebutton.textContent = "Remove";
     Removebutton.classList.add('card-remove');
@@ -128,7 +129,7 @@ document.addEventListener("click", function(e){
 // Read button functionality
 document.addEventListener("click", function(e){
     const target = e.target.closest(".card-read"); 
-    
+    console.log("1")
     if(target != null){
         const sister = target.parentNode.childNodes[1];
         readBook(sister.id)
@@ -141,3 +142,5 @@ function readBook(Title){
     activeBook.read === false ? activeBook.read = true : activeBook.read = false;
     loadLibrary()
 }
+
+

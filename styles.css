@@ -146,8 +146,9 @@ time, mark, audio, video {
     
 :root {
 	--main-color: #5AA3E8;
-	--main-light: #A0CAF1;
+	--main-light: #A7CEF3;
 	--accent-color: #E89F5A;
+	--dark-color: #5F758A
 }
 
 
@@ -199,6 +200,12 @@ body {
 	width: 8rem;
 }
 
+
+
+
+
+
+
 .content {
 	display: grid;
 	position: relative;
@@ -234,6 +241,11 @@ body {
 	word-break: break-word;
 	position: relative;
 	
+}
+
+.card.read {
+	background: var(--dark-color);
+	background: linear-gradient(90deg, var(--dark-color) 90%, var(--accent-color) 90%);
 }
 
 .card > h2 {
