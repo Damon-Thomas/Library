@@ -16,7 +16,7 @@ const bookRead = document.querySelector("#book-read")
 const form = document.getElementById("form");
 const close = document.querySelector("#exit-button");
 const emptyCard = document.createElement("div")
-// emptyCard.classList.add("card")
+
 emptyCard.id = "emptyCard"
 
 // close Modal
@@ -29,10 +29,12 @@ close.addEventListener("click", function(event) {
 // Submit and Make new Book
 submitNewBook.addEventListener("click", function(event){
     event.preventDefault();
+    console.log(bookTitle.value)
+    if (bookTitle.value != "") {
     addBookToLibrary(new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.checked));
     loadLibrary();
     form.reset();
-    dialog.close();
+    dialog.close()};
 })
 
 // Pre Populated Library
