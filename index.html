@@ -12,9 +12,13 @@
         <div class="empty-header"></div>
         <h1 class="library-title">Library</h1>
         <div class="filter-buttons">
-            <svg id="closedbook" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-            <svg id="openbook" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-            <svg id="heart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <h2 class="filter-title">Filter Your Library</h2>
+            <div class="icons">
+                <svg id="closedbook" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <svg id="openbook" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                <svg id="heart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <svg id="next" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-commit"><circle cx="12" cy="12" r="4"></circle><line x1="1.05" y1="12" x2="7" y2="12"></line><line x1="17.01" y1="12" x2="22.96" y2="12"></line></svg>
+            </div>
         </div>
     </div>
     <div class="sidebar">
@@ -22,29 +26,32 @@
         <div class="Sidebarfavorites">    </div>
     </div>
     <div class="content">
-        <button id="showDialog"><img id="add-button" height="100px" width="100px" src="images/plus-circle.svg" alt="add book"></button>
-            <dialog id="add-book">
-                <form id="form">
-                    <div class="form-header">
-                        <input type='image' id="exit-button" src="images/x-circle.svg"  name='exit' value='exit' />
-                        <h1>Add Book</h1>
-                        <div class="empty"></div>
-                    </div>
-                    <label for="book-title">Title*</label >
-                    <input type="text" id="book-title" name="book-title" minlength="1" required>
-                    <label for="book-author">Author</label>
-                    <input type="text" id="book-author" name="book-author" maxlength="25">
-                    <label for="book-length">Page Count</label>
-                    <input type="number" id="book-length" name="book-length" maxlength="5">
-                    <div class="form-footer">
-                        <div class="form-read">
-                            <label for="book-read">Read?</label>
-                            <input type="checkbox" name="book-read" id="book-read">
+        <div id="add-book-section">
+            <h2>Add Book</h2>
+            <button id="showDialog"><img id="add-button" src="images/plus-circle.svg" alt="add book"></button>
+                <dialog id="add-book">
+                    <form id="form">
+                        <div class="form-header">
+                            <input type='image' id="exit-button" src="images/x-circle.svg"  name='exit' value='exit' />
+                            <h1>Add Book</h1>
+                            <div class="empty"></div>
                         </div>
-                        <input type="submit" form="form" id="book-submit" name="add-book" value="Add Book">
-                    </div>
-                </form>
-            </dialog>
+                        <label for="book-title">Title*</label >
+                        <input type="text" id="book-title" name="book-title" minlength="1" required>
+                        <label for="book-author">Author</label>
+                        <input type="text" id="book-author" name="book-author" maxlength="25">
+                        <label for="book-length">Page Count</label>
+                        <input type="number" id="book-length" name="book-length" maxlength="5">
+                        <div class="form-footer">
+                            <div class="form-read">
+                                <label for="book-read">Read?</label>
+                                <input type="checkbox" name="book-read" id="book-read">
+                            </div>
+                            <input type="submit" form="form" id="book-submit" name="add-book" value="Add Book">
+                        </div>
+                    </form>
+                </dialog>
+        </div>
         <div id="card-container">
             <div class="card"></div>
         </div>

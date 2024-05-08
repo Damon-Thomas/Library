@@ -156,7 +156,7 @@ time, mark, audio, video {
 
 body {
 	display: grid;
-	grid-template-rows: 6rem 1fr;
+	grid-template-rows: 8rem 1fr;
 	grid-template-columns:  13rem 4fr;
 	min-height: 100vh;
 	max-width: 100vw;
@@ -178,13 +178,25 @@ body {
 
 .filter-buttons {
 	display: flex;
-	gap: 2rem;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
 	
 }
 
+.filter-title {
+	font-size: 1.5rem;
+	font-family: 'poppinsextrabold';
+}
+
+.icons {
+	display: flex;
+	gap: 1rem;
+}
+
 .feather {
-	width: 4rem;
-	height: 4rem;
+	width: 3rem;
+	height: 3rem;
 }
 
 .sidebar {
@@ -260,20 +272,25 @@ body {
 	font-size: .75rem;
 	font-family: "poppinsmedium";
 }
-
-#showDialog {
+#add-book-section {
 	position: absolute;
 	grid-column: 1/2;
 	grid-row: 1/2;
-	top: 2rem;
-	left: 2rem;
-	background-color: white;
-	border: none;
+	top: 4.09rem;
+	left: 5.125rem;
+}
+
+#add-book-section > h2 {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1rem;
+	font-size: 1.5rem;
+	font-family: "poppinsextrabold";
 }
 
 #showDialog {
-	height: 15rem;
-	width: 15rem;
+	background-color: white;
+	border: none;
 }
 
 #showDialog > img {
