@@ -16,6 +16,8 @@ const bookRead = document.querySelector("#book-read")
 const form = document.getElementById("form");
 const close = document.querySelector("#exit-button");
 const emptyCard = document.createElement("div")
+const sidebarQueue = document.querySelector(".queue")
+const sidebarFavorites = document.querySelector(".favorites")
 
 emptyCard.id = "emptyCard"
 
@@ -29,7 +31,6 @@ close.addEventListener("click", function(event) {
 // Submit and Make new Book
 submitNewBook.addEventListener("click", function(event){
     event.preventDefault();
-    console.log(bookTitle.value)
     if (bookTitle.value != "") {
     addBookToLibrary(new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.checked));
     loadLibrary();
@@ -46,8 +47,15 @@ addBookToLibrary(oryxAndCrake)
 addBookToLibrary(thePragmaticProgrammer)
 loadLibrary()
 
-// Put cards on screen
 function loadLibrary() {
+    loadMain();
+    loadSidebar();
+}
+
+
+
+// Put cards on screen
+function loadMain() {
     cardContainer.replaceChildren()
     cardContainer.appendChild(emptyCard)
     myLibrary.forEach(element => {
@@ -56,8 +64,69 @@ function loadLibrary() {
         })
     };
 
+function loadSidebar() {
+    sidebarFavorites.replaceChildren()
+    sidebarQueue.replaceChildren()
+    let queueList = []
+    let favList = []
+
+    myLibrary.forEach(element => {
+        if (element.favorite === true) {
+            favList.push(element)
+        }
+        if (element.queue === true) {
+            queueList.push(element)
+        }});
+    
+    length1 = Math.min(queueList.length, 3)
+    length2 = Math.min(favList.length, 3)
+    console.log("HERE MATE")
+    console.log(length1)
+    console.log(length2)
+    let count1 = 0
+    let count2 = 0
+    for (let i = 3-length1; i < 3; i++) {
+        console.log("in length1")
+
+        let miniCard = CreateMiniCard(queueList[count1]);
+        sidebarQueue.appendChild(miniCard)}
+        count1++
+
+    for (let i = 3-length2; i < 3; i++) {
+        console.log("in length2")
+        
+        let miniCard2 = CreateMiniCard(favList[count2]);
+        sidebarFavorites.appendChild(miniCard2)
+        count2++
+    }}
+    
+
+
+function CreateMiniCard(Book) {
+    console.log(Book)
+    let miniCard = document.createElement('div')
+    miniCard.classList.add('miniCard');
+    let minicardTitle = document.createElement('h3');
+    console.log("Book.title")
+    console.log(Book.title)
+    minicardTitle.textContent = Book.title;
+    minicardTitle.classList.add('mini-card-title');
+    let miniCardAuthor = document.createElement('p');
+    miniCardAuthor.textContent = Book.author;
+    miniCardAuthor.classList.add('mini-card-author');
+    Book.favorite === true ? miniCard.classList.add("mini-favorite") : miniCard.classList.remove("mini-favorite");
+    Book.queue === true ? miniCard.classList.add("mini-queue") : miniCard.classList.remove("mini-queue");
+    miniCard.appendChild(minicardTitle);
+    miniCard.appendChild(miniCardAuthor)
+    return miniCard
+}
+
+
+
+
 // Create card content from Book
 function createCard(Book) {
+    console.log("Enter Create Card")
     let card = document.createElement('div');
     card.classList.add('card');
     let cardTitle = document.createElement('h2');
@@ -79,12 +148,39 @@ function createCard(Book) {
     Removebutton.textContent = "Remove";
     Removebutton.classList.add('card-remove');
     Removebutton.id = Book.title
+    if(Book.read === true){
+        console.log("in book = true")
+        let favoriteOrNah = document.createElement("img")
+        favoriteOrNah.classList.add("fav")
+        if(Book.favorite === true) {
+            console.log("in fav true");
+            favoriteOrNah.src = "images/full-heart.svg";
+            card.classList.add("favorite");
+            console.log("out fav true");
+            
+        }
+        else {
+            console.log("in fav not true");
+            favoriteOrNah.src = "images/heart.svg";
+            card.classList.remove("favorite");
+
+            console.log("out fav not true");
+        }
+        
+        card.appendChild(favoriteOrNah)
+        
+    }
+    else{
+        Book.favorite = false;
+        }
+
     card.appendChild(cardTitle)
     card.appendChild(cardAuthor)
     card.appendChild(cardpages)
     buttonWrapper.appendChild(cardBookRead)
     buttonWrapper.appendChild(Removebutton)
     card.appendChild(buttonWrapper)
+    
     return card
 }
 
@@ -94,6 +190,8 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.favorite = false
+    this.queue = false
     this.info = function() {
         return `${title} by ${author}, ${pages} pages, ${read}`
     }}
@@ -101,10 +199,6 @@ function Book(title, author, pages, read) {
 // Add books to correct Array
 function addBookToLibrary(Book) {
     myLibrary.push(Book)};
-function addBookToQueue(Book) {
-    queue.push(Book)};
-function addBookTofavorites(Book) {
-    favorites.push(Book)};
 
 // open Modal
 function createNewBook() {
@@ -113,17 +207,16 @@ function createNewBook() {
 
 // Remove from library
 function removeBook(Title) {
-    console.log(Title)
-    let index = myLibrary.findIndex(x => x.title === Title)
-    console.log(index) 
+    let index = myLibrary.findIndex(x => x.title === Title) 
     myLibrary.splice(index,1)
+    
     loadLibrary()
 }
+
 
 // Remove button functionality
 document.addEventListener("click", function(e){
     const target = e.target.closest(".card-remove"); 
-  
     if(target != null){
         removeBook(target.id)
     }});
@@ -131,7 +224,6 @@ document.addEventListener("click", function(e){
 // Read button functionality
 document.addEventListener("click", function(e){
     const target = e.target.closest(".card-read"); 
-    console.log("1")
     if(target != null){
         const sister = target.parentNode.childNodes[1];
         readBook(sister.id)
@@ -140,9 +232,77 @@ document.addEventListener("click", function(e){
 // Change Read Status
 function readBook(Title){
     let index = myLibrary.findIndex(x => x.title === Title)
-    let activeBook =myLibrary[index]
+    let activeBook = myLibrary[index]
     activeBook.read === false ? activeBook.read = true : activeBook.read = false;
     loadLibrary()
 }
 
+// Favorite Button Functionality
+document.addEventListener("click", function(e){
+    console.log("FavButtonstart")
+    const target = e.target.closest(".fav"); 
+    
+  
+    if(target != null){
+        let currentCard = target.parentNode
+        let selector = currentCard.lastChild
+        makeFav(selector.childNodes[1].id)
+        console.log("makeFavTitle")
+        console.log(selector.childNodes[1].id)
+    }
+    console.log("makeFavButtonend")});
 
+
+function makeFav(Title) {
+    console.log("makeFavstart")
+    let index = myLibrary.findIndex(x => x.title === Title)
+    console.log("makeFav index")
+    console.log(index)
+    let activeBook = myLibrary[index]
+    activeBook.favorite === false ? activeBook.favorite = true : activeBook.favorite = false;
+    console.log(activeBook)
+    console.log("creatingcards")
+    // activeBook.favorite === true ? addBookTofavorites(activeBook) : removeFav(activeBook)
+    
+    loadLibrary()
+    console.log("makeFavend")
+}
+
+// function addBookTofavorites(Book) {
+//     console.log("enter addBookTofav")
+//     console.log(favorites);
+//     console.log(myLibrary)
+//     for (var i = 0; i < favorites.length; i++) {
+//         if (favorites[i].title === Book.title) {
+//             return;                             
+//         }
+//     }
+//     favorites.push(Book);
+//     console.log("addBookToFav")
+//     console.log(favorites)
+//     console.log("leave addBookTofav")}
+
+// Remove from favorites
+// function removeFav(Book) {
+//     console.log("removeFavstart");
+//     for (var i = 0; i < favorites.length; i++) {
+//         if (favorites[i].title === Book.title) {
+//             console.log("LOOK HERE")
+//             console.log(i)
+//             console.log(favorites)
+//             favorites.splice(i,1)
+//             console.log(favorites)
+//             loadLibrary()
+//             return;                             
+//         }
+//     }
+
+    
+    // loadLibrary()
+//     console.log("removeFavend")
+// }
+    
+
+
+
+// 2 lists is muddling everything. Need to refactor without a favorites list just using the object properties

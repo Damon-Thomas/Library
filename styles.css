@@ -346,6 +346,13 @@ form > label {
 	
 }
 
+.fav {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	
+}
+
 .card.read {
 	background: var(--dark-color);
 	background: linear-gradient(90deg, var(--dark-color) 90%, var(--accent-color) 90%);
