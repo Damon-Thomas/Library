@@ -148,25 +148,26 @@ time, mark, audio, video {
 	--main-color: #5AA3E8;
 	--main-light: #A7CEF3;
 	--accent-color: #E89F5A;
-	--dark-color: #5F758A
+	--dark-color: #5F758A;
+	--fav-color: #E8596A;
 }
 
 
 
 body {
 	display: grid;
-	grid-template-rows: 5rem 1fr;
-	grid-template-columns:  1fr 4fr;
+	grid-template-rows: 6rem 1fr;
+	grid-template-columns:  13rem 4fr;
 	min-height: 100vh;
 	max-width: 100vw;
 
 }
 
 .header{
-	grid-column: 1/3;
+	grid-column: 2/3;
 	background-color: var(--main-color);
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 	
 }
@@ -175,9 +176,89 @@ body {
 	font-size: 3rem;
 }
 
+.filter-buttons {
+	display: flex;
+	gap: 2rem;
+	
+}
+
+.feather {
+	width: 4rem;
+	height: 4rem;
+}
+
 .sidebar {
 	background-color: var(--main-color);
-	grid-row: 2/3;
+	grid-row: 1/3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+	
+}
+
+.Sidebarqueue, .Sidebarfavorites{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 1rem;
+	margin: 1rem ;
+	height: 27.9rem;
+}
+
+.instructions {
+	width: 9rem;
+	line-height: 1.25rem;
+}
+
+.sidebar-heading {
+	font-size: 1.5rem;
+	font-family: "poppinsbold";
+	border-top: solid 2px var(--dark-color);
+	border-bottom: solid 2px var(--dark-color);
+	padding: .75rem;
+	margin: .25rem;
+}
+
+.mini-queue {
+	background: var(--accent-color);
+	background: linear-gradient(90deg, var(--main-light) 92%, var(--accent-color) 92%);
+}
+
+.mini-favorite {
+	background: var(--dark-color);
+	background: linear-gradient(90deg, var(--dark-color) 92%, var(--fav-color) 92%);
+	box-shadow: 2px 2px 8px black;
+	
+}
+
+.miniCard {
+	width: 8rem;
+	height: 4.55rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background-color: var(--dark-color);
+	border-radius: 1rem;
+	padding: 1rem;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	word-break: break-word;
+	
+}
+
+.miniCard > h3 {
+	font-size: 1rem;
+	font-family: "poppinsbold";
+}
+
+.mini-card-author {
+	margin-top: 1rem;
+	font-size: .75rem;
+	font-family: "poppinsmedium";
 }
 
 #showDialog {
@@ -332,7 +413,7 @@ form > label {
 	height: 7.5rem;
 	border-radius: 1rem;
 	background: var(--main-light);
-	background: linear-gradient(90deg, var(--main-light) 90%, var(--accent-color) 90%);
+	background: linear-gradient(90deg, var(--main-light) 95%, var(--accent-color) 95%);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -348,24 +429,24 @@ form > label {
 
 .fav {
 	position: absolute;
-	top: 1rem;
+	top: .5rem;
 	left: 1rem;
 }
 
 .que {
 	position: absolute;
-	top: 1rem;
-	right: 2rem;
+	top: .5rem;
+	right: 1rem;
 }
 
 .card.read {
 	background: var(--dark-color);
-	background: linear-gradient(90deg, var(--dark-color) 90%, var(--accent-color) 90%);
+	background: linear-gradient(90deg, var(--dark-color) 95%, var(--accent-color) 95%);
 }
 
 .card > h2 {
 	font-family: 'poppinsbold';
-	font-size: 1.5rem;
+	font-size: 1.25rem;
 	margin-bottom: .4rem;
 }
 

@@ -15,8 +15,8 @@ const bookRead = document.querySelector("#book-read")
 const form = document.getElementById("form");
 const close = document.querySelector("#exit-button");
 const emptyCard = document.createElement("div")
-const sidebarQueue = document.querySelector(".queue")
-const sidebarFavorites = document.querySelector(".favorites")
+const sidebarQueue = document.querySelector(".Sidebarqueue")
+const sidebarFavorites = document.querySelector(".Sidebarfavorites")
 
 emptyCard.id = "emptyCard"
 
@@ -67,6 +67,16 @@ function loadMain() {
 function loadSidebar() {
     sidebarFavorites.replaceChildren()
     sidebarQueue.replaceChildren()
+
+    let queueTitle = document.createElement("h1")
+    queueTitle.textContent = "Next to Read"
+    queueTitle.classList.add("sidebar-heading")
+    sidebarQueue.appendChild(queueTitle)
+    let favTitle = document.createElement("h1")
+    favTitle.textContent = "Latest Favs"
+    favTitle.classList.add("sidebar-heading")
+    sidebarFavorites.appendChild(favTitle)
+
     let queueList = []
     let favList = []
 
@@ -92,7 +102,6 @@ function loadSidebar() {
         sidebarQueue.appendChild(miniCard)
         count1++
         console.log(count1)}
-
     for (let i = 3-length2; i < 3; i++) {
         console.log("in length2")
         
@@ -100,7 +109,26 @@ function loadSidebar() {
         sidebarFavorites.appendChild(miniCard2)
         count2--
         console.log(count2)
-    }}
+    }
+
+    let queueInstructions = document.createElement("h2")
+    queueInstructions.classList.add("instructions")
+    queueInstructions.textContent = 'Click on the "+" button at the top-right of one of your NOT READ books to add a book to your "Next to Read" Section' 
+    
+    if (length1 === 0) {
+        
+        sidebarQueue.appendChild(queueInstructions)
+    }
+
+    let favInstructions = document.createElement("h2")
+    favInstructions.classList.add("instructions")
+    favInstructions.textContent = 'Click on the "♡" button at the top-left of one of your READ books to add a book to your "Favorites" Section' 
+    
+    if (length2 === 0) {
+        
+        sidebarFavorites.appendChild(favInstructions)
+    }
+}
     
 
 
