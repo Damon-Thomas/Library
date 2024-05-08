@@ -6,7 +6,7 @@ const ReadFilter = document.querySelector("#openbook")
 const favFilter = document.querySelector("#heart")
 const queFilter = document.querySelector("#next")
 const fullLibrary = document.querySelector("#fullLibrary")
-
+const allIcons = document.querySelectorAll(".feather")
 let masterFilter = 0
 
 // JS variable designations and event listeners
@@ -338,20 +338,37 @@ function addQue(Title) {
 
 
 
-notReadFilter.addEventListener("click", function(e){
-    masterFilter = 1;
-    loadLibrary()}); 
-ReadFilter.addEventListener("click", function(e){
-    masterFilter = 2;
-    loadLibrary()});  
-favFilter.addEventListener("click", function(e){
-    masterFilter = 3;
-    loadLibrary()}); 
-queFilter.addEventListener("click", function(e){
-    masterFilter = 4;
-    loadLibrary()}); 
-fullLibrary.addEventListener("click", function(e){
-    masterFilter = 0;
-    loadLibrary()}); 
+
 
     
+notReadFilter.addEventListener("click", () => {filterContent(notReadFilter, 1)})
+ReadFilter.addEventListener("click", () => {filterContent(ReadFilter, 2)})     
+favFilter.addEventListener("click", () => {filterContent(favFilter, 3)})
+queFilter.addEventListener("click", () => {filterContent(queFilter, 4)})
+
+fullLibrary.addEventListener("click", function(e) {
+    allIcons.forEach(element => {
+        element.classList.remove("chosen")})
+    masterFilter = 0
+    fullLibrary.classList.add("chosen")
+    loadLibrary();
+    })
+
+function filterContent(element, filterNumber) {
+    console.log("in")
+    allIcons.forEach(element => {
+        console.log(element)
+        element.classList.remove("chosen")
+    })
+
+    console.log("passed foreach")
+    if (masterFilter === filterNumber) {
+        masterFilter = 0
+        fullLibrary.classList.add("chosen")
+    }
+    else{
+        masterFilter = filterNumber;
+        element.classList.add("chosen")}
+
+    console.log(masterFilter)
+    loadLibrary()};
