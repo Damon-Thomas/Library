@@ -350,7 +350,12 @@ form > label {
 	position: absolute;
 	top: 1rem;
 	left: 1rem;
-	
+}
+
+.que {
+	position: absolute;
+	top: 1rem;
+	right: 2rem;
 }
 
 .card.read {

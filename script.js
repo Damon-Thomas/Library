@@ -1,7 +1,6 @@
 // Make 3 arrays
 const myLibrary = [];
-const queue = [];
-const favorites = [];
+
 
 // JS variable designations and event listeners
 const dialog = document.querySelector("dialog");
@@ -58,11 +57,12 @@ function loadLibrary() {
 function loadMain() {
     cardContainer.replaceChildren()
     cardContainer.appendChild(emptyCard)
-    myLibrary.forEach(element => {
+    for (let index = myLibrary.length - 1; index >= 0; index--) {
+        const element = myLibrary[index];
         let x = createCard(element)
         cardContainer.appendChild(x)
-        })
-    };
+      }}
+
 
 function loadSidebar() {
     sidebarFavorites.replaceChildren()
@@ -76,39 +76,38 @@ function loadSidebar() {
         }
         if (element.queue === true) {
             queueList.push(element)
+            console.log(queueList)
         }});
     
     length1 = Math.min(queueList.length, 3)
     length2 = Math.min(favList.length, 3)
-    console.log("HERE MATE")
-    console.log(length1)
-    console.log(length2)
+    
     let count1 = 0
-    let count2 = 0
+    let count2 = favList.length-1
+    
     for (let i = 3-length1; i < 3; i++) {
         console.log("in length1")
 
         let miniCard = CreateMiniCard(queueList[count1]);
-        sidebarQueue.appendChild(miniCard)}
+        sidebarQueue.appendChild(miniCard)
         count1++
+        console.log(count1)}
 
     for (let i = 3-length2; i < 3; i++) {
         console.log("in length2")
         
         let miniCard2 = CreateMiniCard(favList[count2]);
         sidebarFavorites.appendChild(miniCard2)
-        count2++
+        count2--
+        console.log(count2)
     }}
     
 
 
 function CreateMiniCard(Book) {
-    console.log(Book)
     let miniCard = document.createElement('div')
     miniCard.classList.add('miniCard');
     let minicardTitle = document.createElement('h3');
-    console.log("Book.title")
-    console.log(Book.title)
     minicardTitle.textContent = Book.title;
     minicardTitle.classList.add('mini-card-title');
     let miniCardAuthor = document.createElement('p');
@@ -126,7 +125,6 @@ function CreateMiniCard(Book) {
 
 // Create card content from Book
 function createCard(Book) {
-    console.log("Enter Create Card")
     let card = document.createElement('div');
     card.classList.add('card');
     let cardTitle = document.createElement('h2');
@@ -149,30 +147,36 @@ function createCard(Book) {
     Removebutton.classList.add('card-remove');
     Removebutton.id = Book.title
     if(Book.read === true){
-        console.log("in book = true")
         let favoriteOrNah = document.createElement("img")
         favoriteOrNah.classList.add("fav")
         if(Book.favorite === true) {
-            console.log("in fav true");
             favoriteOrNah.src = "images/full-heart.svg";
-            card.classList.add("favorite");
-            console.log("out fav true");
-            
-        }
+            card.classList.add("favorite");}
         else {
-            console.log("in fav not true");
             favoriteOrNah.src = "images/heart.svg";
             card.classList.remove("favorite");
-
-            console.log("out fav not true");
         }
-        
-        card.appendChild(favoriteOrNah)
-        
-    }
+        card.appendChild(favoriteOrNah)}
     else{
         Book.favorite = false;
         }
+
+
+    if(Book.read === false){
+        let queueOrNah = document.createElement("img")
+        queueOrNah.classList.add("que")
+        if(Book.queue === true) {
+            queueOrNah.src = "images/full-plus-square.svg";
+            card.classList.add("queue");}
+        else {
+            queueOrNah.src = "images/plus-square.svg";
+            card.classList.remove("queue");
+        }
+        card.appendChild(queueOrNah)}
+    else{
+        Book.queue = false;
+        }
+
 
     card.appendChild(cardTitle)
     card.appendChild(cardAuthor)
@@ -239,70 +243,39 @@ function readBook(Title){
 
 // Favorite Button Functionality
 document.addEventListener("click", function(e){
-    console.log("FavButtonstart")
     const target = e.target.closest(".fav"); 
     
-  
     if(target != null){
         let currentCard = target.parentNode
         let selector = currentCard.lastChild
-        makeFav(selector.childNodes[1].id)
-        console.log("makeFavTitle")
-        console.log(selector.childNodes[1].id)
-    }
-    console.log("makeFavButtonend")});
-
+        makeFav(selector.childNodes[1].id)   
+    }})
+    
 
 function makeFav(Title) {
-    console.log("makeFavstart")
     let index = myLibrary.findIndex(x => x.title === Title)
-    console.log("makeFav index")
-    console.log(index)
     let activeBook = myLibrary[index]
     activeBook.favorite === false ? activeBook.favorite = true : activeBook.favorite = false;
-    console.log(activeBook)
-    console.log("creatingcards")
-    // activeBook.favorite === true ? addBookTofavorites(activeBook) : removeFav(activeBook)
     
-    loadLibrary()
-    console.log("makeFavend")
+    loadLibrary() 
 }
 
-// function addBookTofavorites(Book) {
-//     console.log("enter addBookTofav")
-//     console.log(favorites);
-//     console.log(myLibrary)
-//     for (var i = 0; i < favorites.length; i++) {
-//         if (favorites[i].title === Book.title) {
-//             return;                             
-//         }
-//     }
-//     favorites.push(Book);
-//     console.log("addBookToFav")
-//     console.log(favorites)
-//     console.log("leave addBookTofav")}
-
-// Remove from favorites
-// function removeFav(Book) {
-//     console.log("removeFavstart");
-//     for (var i = 0; i < favorites.length; i++) {
-//         if (favorites[i].title === Book.title) {
-//             console.log("LOOK HERE")
-//             console.log(i)
-//             console.log(favorites)
-//             favorites.splice(i,1)
-//             console.log(favorites)
-//             loadLibrary()
-//             return;                             
-//         }
-//     }
-
-    
-    // loadLibrary()
-//     console.log("removeFavend")
-// }
+document.addEventListener("click", function(e){
+    const target = e.target.closest(".que"); 
+    console.log("in1")
+    if(target != null){
+        let currentCard = target.parentNode
+        let selector = currentCard.lastChild
+        addQue(selector.childNodes[1].id)   
+    }})
     
 
+function addQue(Title) {
+    let index = myLibrary.findIndex(x => x.title === Title)
+    let activeBook = myLibrary[index]
+    console.log(activeBook.queue)
+    activeBook.queue === false ? activeBook.queue = true : activeBook.queue = false;
+    console.log(activeBook.queue)
+    loadLibrary() 
+}
 
-
-// 2 lists is muddling everything. Need to refactor without a favorites list just using the object properties
