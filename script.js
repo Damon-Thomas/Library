@@ -1,5 +1,5 @@
 // Make 3 arrays
-const myLibrary = [];
+let myLibrary = [];
 
 const notReadFilter = document.querySelector("#closedbook")
 const ReadFilter = document.querySelector("#openbook")
@@ -7,6 +7,11 @@ const favFilter = document.querySelector("#heart")
 const queFilter = document.querySelector("#next")
 const fullLibrary = document.querySelector("#fullLibrary")
 const allIcons = document.querySelectorAll(".feather")
+const deleteLibrary = document.getElementById("startOver")
+const iconDiv = document.querySelector(".filter-buttons")
+const backupIcons = document.querySelector(".icons")
+const backupIconsTitle = document.querySelector(".filter-title")
+const header = document.querySelector(".header")
 let masterFilter = 0
 
 // JS variable designations and event listeners
@@ -39,6 +44,7 @@ submitNewBook.addEventListener("click", function(event){
     event.preventDefault();
     if (bookTitle.value != "") {
     addBookToLibrary(new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.checked));
+    filterContent(fullLibrary, 0)
     loadLibrary();
     form.reset();
     dialog.close()};
@@ -51,7 +57,7 @@ thePragmaticProgrammer = new Book('The Pragmatic Programmer', 'David Thomas and 
 addBookToLibrary(TheHobbit)
 addBookToLibrary(oryxAndCrake)
 addBookToLibrary(thePragmaticProgrammer)
-loadLibrary()
+filterContent(fullLibrary, 0)
 
 function loadLibrary() {
     loadMain();
@@ -345,14 +351,16 @@ notReadFilter.addEventListener("click", () => {filterContent(notReadFilter, 1)})
 ReadFilter.addEventListener("click", () => {filterContent(ReadFilter, 2)})     
 favFilter.addEventListener("click", () => {filterContent(favFilter, 3)})
 queFilter.addEventListener("click", () => {filterContent(queFilter, 4)})
+fullLibrary.addEventListener("click", () => {filterContent(fullLibrary, 0)})
 
-fullLibrary.addEventListener("click", function(e) {
-    allIcons.forEach(element => {
-        element.classList.remove("chosen")})
-    masterFilter = 0
-    fullLibrary.classList.add("chosen")
-    loadLibrary();
-    })
+
+// fullLibrary.addEventListener("click", function(e) {
+//     allIcons.forEach(element => {
+//         element.classList.remove("chosen")})
+//     masterFilter = 0
+//     fullLibrary.classList.add("chosen")
+//     loadLibrary();
+//     })
 
 function filterContent(element, filterNumber) {
     console.log("in")
@@ -372,3 +380,84 @@ function filterContent(element, filterNumber) {
 
     console.log(masterFilter)
     loadLibrary()};
+
+startOver.addEventListener("click", () => {startDeleteLibrary()})
+
+document.addEventListener("click", function(e){
+    const target = e.target.closest(".backButton"); 
+    if(target != null){
+        console.log("start return")
+        returnToLibrary() 
+    }})
+
+document.addEventListener("click", function(e){
+    const target = e.target.closest(".deleteButton"); 
+    
+    if(target != null){
+        if (target.textContent === "DELETE LIBRARY FOREVER") {
+            target.textContent = "LAST CHANCE!"
+        }
+        else {
+        finishDeleteLibrary() }
+    }})
+
+
+
+
+
+    // function startDeleteLibrary(){
+    //     iconDiv.replaceChildren();
+    //     iconDiv.classList.add("delete-option");
+    //     let deleteCaption = document.createElement('h3')
+    //     deleteCaption.classList.add("deleteCaption")
+    //     deleteCaption.textContent = "Are you sure you want to delete your Library? This action cannot be undone!"
+    //     let deleteButtonDiv = document.createElement("div")
+    //     deleteButtonDiv.classList("allDeleteButtons")
+    //     let deleteButton = document.createElement("button")
+    //     deleteButton.classList.add("deleteButton")
+    //     deleteButton.textContent = "DELETE LIBRARY FOREVER"
+    //     let backButton = document.createElement("button")
+    //     backButton.classList.add("backButton")
+    //     backButton.textContent = "Return to Library"
+    //     deleteButtonDiv.appendChild(deleteButton)
+    //     deleteButtonDiv.appendChild(backButton)
+    //     iconDiv.appendChild(deleteCaption)
+    //     // iconDiv.appendChild(deleteButtonDiv)
+
+
+function startDeleteLibrary(){
+    iconDiv.replaceChildren();
+    iconDiv.classList.add("delete-option");
+    let deleteButtonDiv = document.createElement("div")
+    deleteButtonDiv.classList.add("allDeleteButtons")
+    let deleteCaption = document.createElement('h3')
+    deleteCaption.classList.add("deleteCaption")
+    deleteCaption.textContent = "Are you sure you want to delete your Library? This action cannot be undone!"
+    let deleteButton = document.createElement("button")
+    deleteButton.classList.add("deleteButton")
+    deleteButton.textContent = "DELETE LIBRARY FOREVER"
+    let backButton = document.createElement("button")
+    backButton.classList.add("backButton")
+    backButton.textContent = "Return to Library"
+    iconDiv.appendChild(deleteCaption)
+    iconDiv.appendChild(deleteButtonDiv)
+    deleteButtonDiv.appendChild(deleteButton)
+    deleteButtonDiv.appendChild(backButton)
+}
+
+
+function finishDeleteLibrary() {
+    myLibrary = []
+    iconDiv.replaceChildren()
+    iconDiv.classList.remove("delete-option");
+    iconDiv.appendChild(backupIconsTitle)
+    iconDiv.appendChild(backupIcons)
+    filterContent(fullLibrary, 0)
+}
+
+function returnToLibrary() {
+    iconDiv.replaceChildren()
+    iconDiv.classList.remove("delete-option");
+    iconDiv.appendChild(backupIconsTitle)
+    iconDiv.appendChild(backupIcons)
+}

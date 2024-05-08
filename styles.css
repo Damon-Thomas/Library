@@ -557,3 +557,37 @@ form > label {
     opacity: .75;
 }
 
+.delete-option {
+	background-color: var(--dark-color);
+	border-radius: 1rem;
+	padding: 1rem;
+	border: dashed 2px var(--fav-color);
+}
+
+.allDeleteButtons {
+	display: flex;
+	gap: 2rem;
+}
+
+.deleteCaption {
+	font-family: "poppinsbold";
+	font-size: 1rem;
+}
+.deleteButton, .backButton {
+	width: 15rem;
+	height: 2.5rem;
+	padding: .25rem;
+	font-family: "poppinsbold";
+	font-size: 1.1rem;
+	border-radius: 1rem;
+	border: none;
+	box-shadow: 2px 2px 4px var(--dark-color);
+}
+
+.backButton {
+	background-color: var(--accent-color);
+}
+
+.deleteButton {
+	background-color: var(--fav-color);
+}
