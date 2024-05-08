@@ -1,6 +1,13 @@
 // Make 3 arrays
 const myLibrary = [];
 
+const notReadFilter = document.querySelector("#closedbook")
+const ReadFilter = document.querySelector("#openbook")
+const favFilter = document.querySelector("#heart")
+const queFilter = document.querySelector("#next")
+const fullLibrary = document.querySelector("#fullLibrary")
+
+let masterFilter = 0
 
 // JS variable designations and event listeners
 const dialog = document.querySelector("dialog");
@@ -59,6 +66,22 @@ function loadMain() {
     cardContainer.appendChild(emptyCard)
     for (let index = myLibrary.length - 1; index >= 0; index--) {
         const element = myLibrary[index];
+        if (masterFilter === 1){
+            if (element.read === true) {
+                continue
+            }}
+        else if(masterFilter===2) {
+            if (element.read === false) {
+                continue
+            }}
+        else if(masterFilter===3) {
+            if (element.favorite === false) {
+                continue
+            }}
+        else if(masterFilter===4) {
+            if (element.queue === false) {
+                continue
+            }}
         let x = createCard(element)
         cardContainer.appendChild(x)
       }}
@@ -307,3 +330,28 @@ function addQue(Title) {
     loadLibrary() 
 }
 
+
+
+
+
+
+
+
+
+notReadFilter.addEventListener("click", function(e){
+    masterFilter = 1;
+    loadLibrary()}); 
+ReadFilter.addEventListener("click", function(e){
+    masterFilter = 2;
+    loadLibrary()});  
+favFilter.addEventListener("click", function(e){
+    masterFilter = 3;
+    loadLibrary()}); 
+queFilter.addEventListener("click", function(e){
+    masterFilter = 4;
+    loadLibrary()}); 
+fullLibrary.addEventListener("click", function(e){
+    masterFilter = 0;
+    loadLibrary()}); 
+
+    

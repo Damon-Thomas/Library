@@ -156,7 +156,7 @@ time, mark, audio, video {
 
 body {
 	display: grid;
-	grid-template-rows: 8rem 1fr;
+	grid-template-rows: 10rem 1fr;
 	grid-template-columns:  13rem 4fr;
 	min-height: 100vh;
 	max-width: 100vw;
@@ -171,9 +171,41 @@ body {
 	align-items: center;
 	
 }
+
+.clear-library {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: start;
+	
+}
+.delete-caption {
+	opacity: 0;
+	transition: all .2s ease-in-out;
+	font-size: .75rem;
+	font-family: "poppinsbold";
+}
+
+.clear-library:hover .delete-caption {
+	opacity: 1;
+}
+
+
+
+/* .caption {
+	opacity: 0;
+	transition: all .2s ease-in-out;
+	font-size: .75rem;
+	font-family: "poppinsbold";
+}
+
+.icons:hover .caption {
+	opacity: 1;
+} */
+
 .library-title {
 	font-family: 'poppinsextrabold';
-	font-size: 3rem;
+	font-size: 4rem;
 }
 
 .filter-buttons {
@@ -191,8 +223,28 @@ body {
 
 .icons {
 	display: flex;
-	gap: 1rem;
+	gap: 1.25rem;
 }
+
+.icon-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: .25rem;
+}
+
+.caption {
+	opacity: 0;
+	transition: all .2s ease-in-out;
+	font-size: .75rem;
+	font-family: "poppinsbold";
+}
+
+.icons:hover .caption {
+	opacity: 1;
+}
+
+
 
 .feather {
 	width: 3rem;
