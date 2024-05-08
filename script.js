@@ -1,4 +1,4 @@
-// Make 3 arrays
+// Make library
 let myLibrary = [];
 
 const notReadFilter = document.querySelector("#closedbook")
@@ -29,7 +29,6 @@ const close = document.querySelector("#exit-button");
 const emptyCard = document.createElement("div")
 const sidebarQueue = document.querySelector(".Sidebarqueue")
 const sidebarFavorites = document.querySelector(".Sidebarfavorites")
-
 emptyCard.id = "emptyCard"
 
 // close Modal
@@ -49,15 +48,6 @@ submitNewBook.addEventListener("click", function(event){
     form.reset();
     dialog.close()};
 })
-
-// Pre Populated Library
-TheHobbit = new Book('The Hobbit', 'J.R.R Tolkien', 295, false);
-oryxAndCrake = new Book('Oryx & Crake', 'Margaret Atwood', 325, true);
-thePragmaticProgrammer = new Book('The Pragmatic Programmer', 'David Thomas and Andrew Hunt', 321, false)
-addBookToLibrary(TheHobbit)
-addBookToLibrary(oryxAndCrake)
-addBookToLibrary(thePragmaticProgrammer)
-filterContent(fullLibrary, 0)
 
 function loadLibrary() {
     loadMain();
@@ -92,7 +82,7 @@ function loadMain() {
         cardContainer.appendChild(x)
       }}
 
-
+// Make sidebar display
 function loadSidebar() {
     sidebarFavorites.replaceChildren()
     sidebarQueue.replaceChildren()
@@ -115,7 +105,6 @@ function loadSidebar() {
         }
         if (element.queue === true) {
             queueList.push(element)
-            console.log(queueList)
         }});
     
     length1 = Math.min(queueList.length, 3)
@@ -125,19 +114,13 @@ function loadSidebar() {
     let count2 = favList.length-1
     
     for (let i = 3-length1; i < 3; i++) {
-        console.log("in length1")
-
         let miniCard = CreateMiniCard(queueList[count1]);
         sidebarQueue.appendChild(miniCard)
-        count1++
-        console.log(count1)}
+        count1++}
     for (let i = 3-length2; i < 3; i++) {
-        console.log("in length2")
-        
         let miniCard2 = CreateMiniCard(favList[count2]);
         sidebarFavorites.appendChild(miniCard2)
         count2--
-        console.log(count2)
     }
 
     let queueInstructions = document.createElement("h2")
@@ -160,7 +143,7 @@ function loadSidebar() {
 }
     
 
-
+// Create Side Card
 function CreateMiniCard(Book) {
     let miniCard = document.createElement('div')
     miniCard.classList.add('miniCard');
@@ -176,9 +159,6 @@ function CreateMiniCard(Book) {
     miniCard.appendChild(miniCardAuthor)
     return miniCard
 }
-
-
-
 
 // Create card content from Book
 function createCard(Book) {
@@ -308,7 +288,7 @@ document.addEventListener("click", function(e){
         makeFav(selector.childNodes[1].id)   
     }})
     
-
+// toggle fav
 function makeFav(Title) {
     let index = myLibrary.findIndex(x => x.title === Title)
     let activeBook = myLibrary[index]
@@ -317,59 +297,36 @@ function makeFav(Title) {
     loadLibrary() 
 }
 
+// que toggle button
 document.addEventListener("click", function(e){
     const target = e.target.closest(".que"); 
-    console.log("in1")
     if(target != null){
         let currentCard = target.parentNode
         let selector = currentCard.lastChild
         addQue(selector.childNodes[1].id)   
     }})
     
-
+// toggle que status
 function addQue(Title) {
     let index = myLibrary.findIndex(x => x.title === Title)
     let activeBook = myLibrary[index]
-    console.log(activeBook.queue)
     activeBook.queue === false ? activeBook.queue = true : activeBook.queue = false;
-    console.log(activeBook.queue)
     loadLibrary() 
 }
-
-
-
-
-
-
-
-
-
-
-
-    
+  
+// filter event listeners
 notReadFilter.addEventListener("click", () => {filterContent(notReadFilter, 1)})
 ReadFilter.addEventListener("click", () => {filterContent(ReadFilter, 2)})     
 favFilter.addEventListener("click", () => {filterContent(favFilter, 3)})
 queFilter.addEventListener("click", () => {filterContent(queFilter, 4)})
 fullLibrary.addEventListener("click", () => {filterContent(fullLibrary, 0)})
 
-
-// fullLibrary.addEventListener("click", function(e) {
-//     allIcons.forEach(element => {
-//         element.classList.remove("chosen")})
-//     masterFilter = 0
-//     fullLibrary.classList.add("chosen")
-//     loadLibrary();
-//     })
-
+// filter function for icons
 function filterContent(element, filterNumber) {
-    console.log("in")
     allIcons.forEach(element => {
-        console.log(element)
         element.classList.remove("chosen")
     })
 
-    console.log("passed foreach")
     if (masterFilter === filterNumber) {
         masterFilter = 0
         fullLibrary.classList.add("chosen")
@@ -378,15 +335,14 @@ function filterContent(element, filterNumber) {
         masterFilter = filterNumber;
         element.classList.add("chosen")}
 
-    console.log(masterFilter)
     loadLibrary()};
 
+// Delete button listeners
 startOver.addEventListener("click", () => {startDeleteLibrary()})
 
 document.addEventListener("click", function(e){
     const target = e.target.closest(".backButton"); 
     if(target != null){
-        console.log("start return")
         returnToLibrary() 
     }})
 
@@ -401,30 +357,7 @@ document.addEventListener("click", function(e){
         finishDeleteLibrary() }
     }})
 
-
-
-
-
-    // function startDeleteLibrary(){
-    //     iconDiv.replaceChildren();
-    //     iconDiv.classList.add("delete-option");
-    //     let deleteCaption = document.createElement('h3')
-    //     deleteCaption.classList.add("deleteCaption")
-    //     deleteCaption.textContent = "Are you sure you want to delete your Library? This action cannot be undone!"
-    //     let deleteButtonDiv = document.createElement("div")
-    //     deleteButtonDiv.classList("allDeleteButtons")
-    //     let deleteButton = document.createElement("button")
-    //     deleteButton.classList.add("deleteButton")
-    //     deleteButton.textContent = "DELETE LIBRARY FOREVER"
-    //     let backButton = document.createElement("button")
-    //     backButton.classList.add("backButton")
-    //     backButton.textContent = "Return to Library"
-    //     deleteButtonDiv.appendChild(deleteButton)
-    //     deleteButtonDiv.appendChild(backButton)
-    //     iconDiv.appendChild(deleteCaption)
-    //     // iconDiv.appendChild(deleteButtonDiv)
-
-
+// open delete menu over icons
 function startDeleteLibrary(){
     iconDiv.replaceChildren();
     iconDiv.classList.add("delete-option");
@@ -445,7 +378,7 @@ function startDeleteLibrary(){
     deleteButtonDiv.appendChild(backButton)
 }
 
-
+// clear library array and fix icons
 function finishDeleteLibrary() {
     myLibrary = []
     iconDiv.replaceChildren()
@@ -455,9 +388,28 @@ function finishDeleteLibrary() {
     filterContent(fullLibrary, 0)
 }
 
+// exit delete menu and fix icons
 function returnToLibrary() {
     iconDiv.replaceChildren()
     iconDiv.classList.remove("delete-option");
     iconDiv.appendChild(backupIconsTitle)
     iconDiv.appendChild(backupIcons)
 }
+
+// Pre Populated Library
+grokkingAlgorithms = new Book('grokking algorithms', 'Aditya Y. Bhargave', 238, false);
+oryxAndCrake = new Book('Oryx & Crake', 'Margaret Atwood', 389, true);
+thePragmaticProgrammer = new Book('The Pragmatic Programmer', 'David Thomas and Andrew Hunt', 321, false)
+pythonCrashCourse = new Book('Python Crash Course', 'Eric Matthes', 514, true)
+thinkLikeAProgrammer = new Book('Think Like A Programmer', 'V. Anton Spraul', 233, false)
+toKillAMockingbird = new Book('To Kill a Mockingbird', 'Harper Lee', 323, true)
+oryxAndCrake.favorite = true
+thePragmaticProgrammer.queue = true
+thinkLikeAProgrammer.queue = true
+addBookToLibrary(grokkingAlgorithms)
+addBookToLibrary(oryxAndCrake)
+addBookToLibrary(thePragmaticProgrammer)
+addBookToLibrary(pythonCrashCourse)
+addBookToLibrary(thinkLikeAProgrammer)
+addBookToLibrary(toKillAMockingbird)
+filterContent(fullLibrary, 0)
