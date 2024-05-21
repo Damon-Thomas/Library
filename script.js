@@ -226,16 +226,18 @@ function createCard(Book) {
 }
 
 // Make Book Object
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.favorite = false
-    this.queue = false
-    this.info = function() {
-        return `${title} by ${author}, ${pages} pages, ${read}`
-    }}
+class Book{
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.favorite = false
+        this.queue = false
+        this.info = function() {
+            return `${title} by ${author}, ${pages} pages, ${read}`}
+        }
+    }
 
 // Add books to correct Array
 function addBookToLibrary(Book) {
