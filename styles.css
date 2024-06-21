@@ -1,30 +1,17 @@
-
 @font-face {
-    font-family: 'poppinsblack';
-    src: url('/fonts/poppins-black-webfont.woff2') format('woff2'),
-         url('/fonts/poppins-black-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'poppinsblack';
+	src: url('/fonts/poppins-black-webfont.woff2') format('woff2'),
+		url('/fonts/poppins-black-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'poppinsblack_italic';
-    src: url('/fonts/poppins-blackitalic-webfont.woff2') format('woff2'),
-         url('/fonts/poppins-blackitalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-
-
-@font-face {
-    font-family: 'poppinsbold';
-    src: url('/fonts/poppins-bold-webfont.woff2') format('woff2'),
-         url('/fonts/poppins-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'poppinsblack_italic';
+	src: url('/fonts/poppins-blackitalic-webfont.woff2') format('woff2'),
+		url('/fonts/poppins-blackitalic-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 
 }
 
@@ -32,11 +19,11 @@
 
 
 @font-face {
-    font-family: 'poppinsextrabold';
-    src: url('/fonts/poppins-extrabold-webfont.woff2') format('woff2'),
-         url('/fonts/poppins-extrabold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'poppinsbold';
+	src: url('/fonts/poppins-bold-webfont.woff2') format('woff2'),
+		url('/fonts/poppins-bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 
 }
 
@@ -44,11 +31,11 @@
 
 
 @font-face {
-    font-family: 'poppinsextralight';
-    src: url('/fonts/poppins-extralight-webfont.woff2') format('woff2'),
-         url('/fonts/poppins-extralight-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'poppinsextrabold';
+	src: url('/fonts/poppins-extrabold-webfont.woff2') format('woff2'),
+		url('/fonts/poppins-extrabold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 
 }
 
@@ -56,11 +43,11 @@
 
 
 @font-face {
-    font-family: 'poppinsextralight_italic';
-    src: url('/fonts/poppins-extralightitalic-webfont.woff2') format('woff2'),
-         url('/fonts/poppins-extralightitalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'poppinsextralight';
+	src: url('/fonts/poppins-extralight-webfont.woff2') format('woff2'),
+		url('/fonts/poppins-extralight-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 
 }
 
@@ -68,11 +55,11 @@
 
 
 @font-face {
-    font-family: 'poppinsitalic';
-    src: url('/fonts/poppins-italic-webfont.woff2') format('woff2'),
-         url('/fonts/poppins-italic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'poppinsextralight_italic';
+	src: url('/fonts/poppins-extralightitalic-webfont.woff2') format('woff2'),
+		url('/fonts/poppins-extralightitalic-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 
 }
 
@@ -80,11 +67,11 @@
 
 
 @font-face {
-    font-family: 'poppinslight';
-    src: url('/fonts/poppins-light-webfont.woff2') format('woff2'),
-         url('/fonts/poppins-light-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'poppinsitalic';
+	src: url('/fonts/poppins-italic-webfont.woff2') format('woff2'),
+		url('/fonts/poppins-italic-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 
 }
 
@@ -92,11 +79,11 @@
 
 
 @font-face {
-    font-family: 'poppinslight_italic';
-    src: url('/fonts/poppins-lightitalic-webfont.woff2') format('woff2'),
-         url('/fonts/poppins-lightitalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'poppinslight';
+	src: url('/fonts/poppins-light-webfont.woff2') format('woff2'),
+		url('/fonts/poppins-light-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 
 }
 
@@ -104,11 +91,11 @@
 
 
 @font-face {
-    font-family: 'poppinsmedium';
-    src: url('/fonts/poppins-medium-webfont.woff2') format('woff2'),
-         url('/fonts/poppins-medium-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'poppinslight_italic';
+	src: url('/fonts/poppins-lightitalic-webfont.woff2') format('woff2'),
+		url('/fonts/poppins-lightitalic-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 
 }
 
@@ -116,26 +103,107 @@
 
 
 @font-face {
-    font-family: 'poppinsregular';
-    src: url('fonts/poppins-regular-webfont.woff2') format('woff2'),
-         url('fonts/poppins-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'poppinsmedium';
+	src: url('/fonts/poppins-medium-webfont.woff2') format('woff2'),
+		url('/fonts/poppins-medium-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 
 }
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+
+
+
+
+@font-face {
+	font-family: 'poppinsregular';
+	src: url('fonts/poppins-regular-webfont.woff2') format('woff2'),
+		url('fonts/poppins-regular-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -143,7 +211,7 @@ time, mark, audio, video {
 	font-family: "poppinsregular", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	vertical-align: baseline;
 }
-    
+
 :root {
 	--main-color: #5AA3E8;
 	--main-light: #A7CEF3;
@@ -157,19 +225,19 @@ time, mark, audio, video {
 body {
 	display: grid;
 	grid-template-rows: 10rem 1fr;
-	grid-template-columns:  13rem 4fr;
+	grid-template-columns: 13rem 4fr;
 	min-height: 100vh;
 	max-width: 100vw;
 
 }
 
-.header{
+.header {
 	grid-column: 2/3;
 	background-color: var(--main-color);
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	
+
 }
 
 .clear-library {
@@ -177,8 +245,9 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: start;
-	
+
 }
+
 .delete-caption {
 	opacity: 0;
 	transition: all .2s ease-in-out;
@@ -206,7 +275,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	gap: 1rem;
-	
+
 }
 
 .filter-title {
@@ -250,17 +319,18 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	
-	
+
+
 }
 
-.Sidebarqueue, .Sidebarfavorites{
+.Sidebarqueue,
+.Sidebarfavorites {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
 	gap: 1rem;
-	margin: 1rem ;
+	margin: 1rem;
 	height: 27.9rem;
 }
 
@@ -287,7 +357,7 @@ body {
 	background: var(--dark-color);
 	background: linear-gradient(90deg, var(--dark-color) 92%, var(--fav-color) 92%);
 	box-shadow: 2px 2px 8px black;
-	
+
 }
 
 .miniCard {
@@ -304,10 +374,10 @@ body {
 	word-wrap: break-word;
 	white-space: pre-wrap;
 	word-break: break-word;
-	
+
 }
 
-.miniCard > h3 {
+.miniCard>h3 {
 	font-size: 1rem;
 	font-family: "poppinsbold";
 }
@@ -317,6 +387,7 @@ body {
 	font-size: .75rem;
 	font-family: "poppinsmedium";
 }
+
 #add-book-section {
 	position: absolute;
 	grid-column: 1/2;
@@ -325,7 +396,7 @@ body {
 	left: 5.125rem;
 }
 
-#add-book-section > h2 {
+#add-book-section>h2 {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 1rem;
@@ -338,7 +409,7 @@ body {
 	border: none;
 }
 
-#showDialog > img {
+#showDialog>img {
 	height: 8rem;
 	width: 8rem;
 }
@@ -357,7 +428,7 @@ form {
 	display: flex;
 	flex-direction: column;
 	gap: .5rem;
-	
+
 }
 
 .form-header {
@@ -367,90 +438,26 @@ form {
 	padding: 1rem 0;
 }
 
-.form-header > h1 {
+.form-header>h1 {
 	font-size: 2rem;
 	font-family: 'poppinsextrabold';
 }
 
-#exit-button, .empty {
+#exit-button,
+.empty {
 	width: 4rem;
 	height: 4rem;
 }
 
 #exit-button {
 	will-change: filter;
-  
+
 	transition: filter .2s ease-out;
 }
 
 #exit-button:hover {
 	filter: drop-shadow(0 0 10px var(--accent-color))
 }
-form > input {
-	width: 28rem;
-	height: 2.5rem;
-	border: none;
-	padding: 0 1rem 0 1rem;
-	font-size: 1.25rem;
-	font-family: 'poppinsbold';
-
-}
-
-form > label {
-	font-size: 1.5rem;
-	font-family: 'poppinsmedium';
-	padding: 1.5rem 0 .2rem .5rem
-}
-
-.form-footer {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding-top: 2rem;
-	font-size: 1rem;
-	font-family: 'poppinsbold';
-
-}
-
-.form-read {
-	display: flex;
-	align-items: center;
-	padding-left: 2rem;
-}
-
-.form-read > label {
-	font-size: 2rem;
-	font-family: 'poppinsbold';
-	padding: 1rem;
-}
-
-.form-read > input {
-	width: 2rem;
-	height: 2rem;
-	accent-color: var(--dark-color);
-}
-
-.form-footer > input {
-	padding-right: 2rem;
-	height: 4rem;
-	width: 13rem;
-	border: none;
-	border-radius: 2rem;
-	
-	padding: .5rem;
-	font-family: 'poppinsbold';
-	font-size: 2rem;
-	background-color: var(--accent-color);
-	font-size: 2rem;
-	box-shadow: 2px 2px 4px var(--dark-color);
-	transition: box-shadow 0.2s ease-in-out;
-}
-
-.form-footer > input:hover {
-	box-shadow: 2px 2px 4px  black;
-}
-
-
 
 .content {
 	display: grid;
@@ -486,7 +493,7 @@ form > label {
 	white-space: pre-wrap;
 	word-break: break-word;
 	position: relative;
-	
+
 }
 
 .fav {
@@ -506,13 +513,13 @@ form > label {
 	background: linear-gradient(90deg, var(--dark-color) 95%, var(--accent-color) 95%);
 }
 
-.card > h2 {
+.card>h2 {
 	font-family: 'poppinsbold';
 	font-size: 1.25rem;
 	margin-bottom: .4rem;
 }
 
-.card > p {
+.card>p {
 	font-family: 'poppinsregular';
 	margin: .25rem;
 	font-size: 1rem;
@@ -523,7 +530,8 @@ form > label {
 	left: 0;
 	bottom: .75rem;
 }
-.buttonWrapper > button {
+
+.buttonWrapper>button {
 	font-family: 'poppinsmedium';
 	margin: .25rem;
 	background-color: var(--accent-color);
@@ -541,9 +549,9 @@ form > label {
 
 .footer {
 	position: fixed;
-  	left: 0;
- 	bottom: 0;
- 	width: 100%;
+	left: 0;
+	bottom: 0;
+	width: 100%;
 	height: 2rem;
 	background-color: rgb(43, 41, 41);
 	display: flex;
@@ -553,8 +561,8 @@ form > label {
 }
 
 ::backdrop {
-    background-color: var(--dark-color);
-    opacity: .75;
+	background-color: var(--dark-color);
+	opacity: .75;
 }
 
 .delete-option {
@@ -573,7 +581,9 @@ form > label {
 	font-family: "poppinsbold";
 	font-size: 1rem;
 }
-.deleteButton, .backButton {
+
+.deleteButton,
+.backButton {
 	width: 15rem;
 	height: 2.5rem;
 	padding: .25rem;
@@ -590,4 +600,116 @@ form > label {
 
 .deleteButton {
 	background-color: var(--fav-color);
+}
+
+form>label>input {
+	width: calc(100% - 2rem);
+	height: 2rem;
+	border: solid 1px;
+	
+	padding: 0 1rem 0 1rem;
+	font-size: 1.25rem;
+	font-family: 'poppinsbold';
+
+}
+
+form>label {
+	font-size: 1.25rem;
+	font-family: 'poppinsmedium';
+	/* padding: 1.5rem 0 .2rem .5rem; */
+	display: flex;
+	flex-direction: column;
+	align-items:flex-start;
+	justify-content: space-between;
+	gap: .5rem;
+	padding: 0 2rem;
+}
+
+label > span {
+	display: flex;
+	align-items: center;
+}
+
+.form-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 2rem;
+	font-size: 1rem;
+	font-family: 'poppinsbold';
+
+}
+
+.form-read {
+	display: flex;
+	align-items: center;
+	padding-left: 2rem;
+}
+
+.form-read>label {
+	font-size: 2rem;
+	font-family: 'poppinsbold';
+	padding: 1rem;
+}
+
+.form-read>input {
+	width: 2rem;
+	height: 2rem;
+	accent-color: var(--dark-color);
+}
+
+.form-footer>input {
+	padding-right: 2rem;
+	height: 4rem;
+	width: 13rem;
+	border: none;
+	border-radius: 2rem;
+
+	padding: .5rem;
+	font-family: 'poppinsbold';
+	font-size: 2rem;
+	background-color: var(--accent-color);
+	font-size: 2rem;
+	box-shadow: 2px 2px 4px var(--dark-color);
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+.form-footer>input:hover {
+	box-shadow: 2px 2px 4px black;
+}
+
+input:invalid {
+	border-color: #900;
+	background-color: #fdd;
+}
+
+input:focus:invalid {
+	outline: none;
+}
+
+.error {
+	width: 100%;
+	padding: 0;
+
+	font-size: 80%;
+	color: white;
+	background-color: #900;
+	border-radius: 0 0 5px 5px;
+
+	box-sizing: border-box;
+}
+
+.error.active {
+	padding: 0.3em;
+}
+
+.form-read > label {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+#book-read[type=checkbox] {
+	transform: scale(3);
+	outline: none;
+
 }
